@@ -4,21 +4,19 @@ module.exports = function (config) {
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
     plugins: [
       require('karma-jasmine'),
-      require('karma-opera-launcher'), // or require('karma-chrome-launcher') for Chrome
+      require('karma-opera-launcher'), // Opera GX launcher
       require('karma-jasmine-html-reporter'),
       require('karma-coverage'),
       require('@angular-devkit/build-angular/plugins/karma')
     ],
     client: {
       jasmine: {
-        // you can add configuration options for Jasmine here
-        // for example, you can disable the random execution with `random: false`
-        // or set a specific seed with `seed: 4321`
+        // Jasmine configuration options
       },
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
     jasmineHtmlReporter: {
-      suppressAll: true // removes the duplicated traces
+      suppressAll: true // removes duplicated traces
     },
     coverageReporter: {
       dir: require('path').join(__dirname, './coverage/app'),
@@ -33,7 +31,7 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Opera'], // or ['Chrome'] if you prefer Chrome
+    browsers: ['Opera'], // Ensure this matches your launcher
     singleRun: false,
     restartOnFileChange: true
   });
