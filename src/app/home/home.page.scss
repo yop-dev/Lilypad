@@ -1,0 +1,52 @@
+/* Ensure the ion-content covers the entire viewport */
+ion-content {
+  height: 100vh; /* Full viewport height */
+  --padding-start: 0;
+  --padding-end: 0;
+  --padding-top: 0;
+  --padding-bottom: 0;
+  overflow: hidden; /* Hide any overflow */
+}
+
+/* Ensure the container is not affecting video display */
+#container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0; /* Position container at the top of the viewport */
+  bottom: 0; /* Extend container to the bottom of the viewport */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  z-index: 1; /* Make sure the container is behind the video */
+}
+
+/* Styling for the button */
+ion-button.surprise {
+  --background: lightcoral; /* Button background color */
+  --color: white; /* Button text color */
+  position: relative;
+  z-index: 2; /* Ensure the button is above the container */
+}
+
+/* Ensure the video element covers the entire screen */
+video {
+  position: fixed; /* Fixed position relative to the viewport */
+  top: 0;
+  left: 0;
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  object-fit: cover; /* Cover the viewport, preserving aspect ratio */
+  z-index: 9999; /* Ensure the video is on top of other content */
+  display: none; /* Initially hidden */
+}
+
+/* Specific adjustments for iOS */
+@supports (-webkit-touch-callout: none) {
+  video {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+}

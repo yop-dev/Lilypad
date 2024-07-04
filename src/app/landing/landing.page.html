@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text = "" defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="centered-title"></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" scroll-y="false" style="--background: url(assets/img/bg.jpg) no-repeat center/cover;">
+
+
+
+  <div id="container">
+
+    <div class="image-container">
+      <img class = "hbd" src="assets/img/hbd.png" alt="Description of image">
+    </div>
+
+    <ion-button class = "gallery" (click)="goToGallery()">Photos Gallery</ion-button>
+    <ion-button class = "letter" (click)="goToLetter()">Letter</ion-button>
+    <ion-button class = "poem" (click)="goToPoem()">Poem</ion-button>
+
+
+  </div>
+</ion-content>

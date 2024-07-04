@@ -1,0 +1,54 @@
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the buttons horizontally */
+    justify-content: center; /* Center the buttons vertically within the container */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 40%;
+    transform: translateY(-50%);
+  }
+  
+  #container strong {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  
+  #container p {
+    font-size: 16px;
+    line-height: 22px;
+    color: #8c8c8c;
+    margin: 0;
+  }
+  
+  #container a {
+    text-decoration: none;
+  }
+  
+  ion-button.gallery {
+    --background: lightcoral;
+    --color: white; /* Optional: Change the text color */
+    margin-bottom: 10px; /* Add space between buttons */
+    
+  }
+
+  ion-button.poem {
+    --background: lightcoral;
+    --color: white; /* Optional: Change the text color */
+    margin-bottom: 10px; /* Add space between buttons */
+    width: 33%;
+    
+  }
+  
+  ion-button.letter {
+    --background: lightcoral;
+    --color: white; /* Optional: Change the text color */
+    width: 33%;
+  }
+
+  .image-container{
+    width: 90%;
+    align-items: center;
+  }
+  

@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text = "" defaultHref="/gallery"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="centered-title"></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-grid>
+    <ion-row>
+      <ion-col sizeLg="4" sizeMd="4" sizeXs="6" *ngFor="let image of [1,2]">
+    <div class = "img-wrapper" [style.background-image] = "'url(assets/images/ionic-image-gallery-' + image + '.jpg)'">
+  
+    </div>
+      </ion-col>
+    </ion-row>
+  
+  </ion-grid>
+
+</ion-content>

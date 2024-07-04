@@ -1,0 +1,9 @@
+<ion-content [fullscreen]="true" scroll-y="false" style="--background: url(assets/img/bg.jpg) no-repeat center/cover;">
+  <div id="container">
+    <ion-button class="surprise" (click)="playVideo()">Click for a Surprise</ion-button>
+    <video #videoPlayer id="videoPlayer" (ended)="onVideoEnded()">
+      <source src="assets/videos/sampleVideo.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</ion-content>
