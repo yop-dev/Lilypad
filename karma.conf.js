@@ -1,14 +1,10 @@
-// Karma configuration file, see link for more information
-// https://karma-runner.github.io/1.0/config/configuration-file.html
-
 module.exports = function (config) {
   config.set({
-    browsers: ['Opera'],
     basePath: '',
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
     plugins: [
       require('karma-jasmine'),
-      require('karma-opera-launcher'),
+      require('karma-opera-launcher'), // or require('karma-chrome-launcher') for Chrome
       require('karma-jasmine-html-reporter'),
       require('karma-coverage'),
       require('@angular-devkit/build-angular/plugins/karma')
@@ -16,7 +12,6 @@ module.exports = function (config) {
     client: {
       jasmine: {
         // you can add configuration options for Jasmine here
-        // the possible options are listed at https://jasmine.github.io/api/edge/Configuration.html
         // for example, you can disable the random execution with `random: false`
         // or set a specific seed with `seed: 4321`
       },
@@ -38,7 +33,7 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
+    browsers: ['Opera'], // or ['Chrome'] if you prefer Chrome
     singleRun: false,
     restartOnFileChange: true
   });
