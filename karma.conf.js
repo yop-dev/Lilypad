@@ -31,7 +31,17 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Opera'], // Ensure this matches your launcher
+    browsers: ['OperaGX'],
+    customLaunchers: {
+      OperaGX: {
+        base: 'Opera',
+        flags: [],
+        // Provide the path to Opera GX executable if necessary
+        // For example, "C:/Users/YourUsername/AppData/Local/Programs/Opera GX/opera.exe"
+        // Replace the path with the actual path to your Opera GX executable
+        browser: "C:/Users/desil/AppData/Local/Programs/Opera GX/opera.exe"
+      }
+    },
     singleRun: false,
     restartOnFileChange: true
   });
