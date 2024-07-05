@@ -4,7 +4,7 @@ module.exports = function (config) {
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
     plugins: [
       require('karma-jasmine'),
-      require('karma-opera-launcher'), // Opera GX launcher
+      require('karma-edge-launcher'), // Add the Edge launcher plugin
       require('karma-jasmine-html-reporter'),
       require('karma-coverage'),
       require('@angular-devkit/build-angular/plugins/karma')
@@ -13,10 +13,10 @@ module.exports = function (config) {
       jasmine: {
         // Jasmine configuration options
       },
-      clearContext: false // leave Jasmine Spec Runner output visible in browser
+      clearContext: false // Leave Jasmine Spec Runner output visible in browser
     },
     jasmineHtmlReporter: {
-      suppressAll: true // removes duplicated traces
+      suppressAll: true // Removes duplicated traces
     },
     coverageReporter: {
       dir: require('path').join(__dirname, './coverage/app'),
@@ -29,17 +29,14 @@ module.exports = function (config) {
     reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,
-    logLevel: config.LOG_INFO,
+    logLevel: config.LOG_DEBUG, // Set log level to DEBUG
     autoWatch: true,
-    browsers: ['OperaGX'],
+    browsers: ['Edge'], // Use Edge browser
     customLaunchers: {
-      OperaGX: {
-        base: 'Opera',
-        flags: [],
-        // Provide the path to Opera GX executable if necessary
-        // For example, "C:/Users/YourUsername/AppData/Local/Programs/Opera GX/opera.exe"
-        // Replace the path with the actual path to your Opera GX executable
-        browser: "C:/Users/desil/AppData/Local/Programs/Opera GX/opera.exe"
+      Edge: {
+        base: 'Edge',
+        flags: ['--disable-extensions'],
+        binary: 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe' // Path to Edge executable
       }
     },
     singleRun: false,
