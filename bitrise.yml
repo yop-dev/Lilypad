@@ -1,0 +1,33 @@
+format_version: "8"
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+project_type: ionic
+workflows:
+  primary:
+    envs:
+      - IONIC_WORK_DIR: "$BITRISE_SOURCE_DIR"
+    steps:
+      - activate-ssh-key@4.0.3:
+          run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+      - git-clone@6.0.0: {}
+      - certificate-and-profile-installer@1.10.1: {}
+      - restore-npm-cache@1.1.1: {}
+      - npm@1.0.1:
+          inputs:
+            - command: install
+            - workdir: "$IONIC_WORK_DIR"
+      - script@1.1.5:
+          title: Sync Capacitor
+          inputs:
+            - content: |-
+                #!/bin/bash
+                cd $IONIC_WORK_DIR
+                npx cap sync ios
+      - cocoapods-install@1.10.1:
+          inputs:
+            - workdir: "$IONIC_WORK_DIR/ios"
+      - certificate-and-profile-installer@1.10.1: {}
+      - xcode-archive@3.2.0:
+          inputs:
+            - export_method: app-store
+            - workdir: "$IONIC_WORK_DIR/ios"
+      - deploy-to-bitrise-io@1.12.0: {}
