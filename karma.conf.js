@@ -1,13 +1,13 @@
 module.exports = function (config) {
   config.set({
     basePath: '',
-    frameworks: ['jasmine', '@angular-devkit/build-angular'],
+    frameworks: ['jasmine', 'karma-typescript'], // Added karma-typescript
     plugins: [
       require('karma-jasmine'),
-      require('karma-edge-launcher'), // Add the Edge launcher plugin
+      require('karma-opera-launcher'), // Add the Opera GX launcher plugin
       require('karma-jasmine-html-reporter'),
       require('karma-coverage'),
-      require('@angular-devkit/build-angular/plugins/karma')
+      require('karma-typescript') // Add karma-typescript plugin for handling TypeScript files
     ],
     client: {
       jasmine: {
@@ -31,12 +31,12 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_DEBUG, // Set log level to DEBUG
     autoWatch: true,
-    browsers: ['Edge'], // Use Edge browser
+    browsers: ['OperaGX'], // Use Opera GX browser
     customLaunchers: {
-      Edge: {
-        base: 'Edge',
+      OperaGX: {
+        base: 'Opera',
         flags: ['--disable-extensions'],
-        binary: 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe' // Path to Edge executable
+        binary: 'C:/Program Files/Opera GX/launcher.exe' // Path to Opera GX executable (update if necessary)
       }
     },
     singleRun: false,
