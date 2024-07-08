@@ -4,7 +4,7 @@ project_type: ionic
 workflows:
   primary:
     envs:
-      - IONIC_WORK_DIR: "$BITRISE_SOURCE_DIR"
+      - IONIC_WORK_DIR: "$BITRISE_SOURCE_DIR" # Ensuring root of project is set correctly
     steps:
       - activate-ssh-key@4.0.3:
           run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
@@ -14,20 +14,20 @@ workflows:
       - npm@1.0.1:
           inputs:
             - command: install
-            - workdir: "$IONIC_WORK_DIR"
+            - workdir: "$IONIC_WORK_DIR" # Using project root for npm install
       - script@1.1.5:
           title: Sync Capacitor
           inputs:
             - content: |-
                 #!/bin/bash
-                cd $IONIC_WORK_DIR
+                cd $IONIC_WORK_DIR  # Change to project root
                 npx cap sync ios
       - cocoapods-install@1.10.1:
           inputs:
-            - workdir: "$IONIC_WORK_DIR/ios"
+            - workdir: "$IONIC_WORK_DIR/ios" # Using ios directory for CocoaPods
       - certificate-and-profile-installer@1.10.1: {}
       - xcode-archive@3.2.0:
           inputs:
             - export_method: app-store
-            - workdir: "$IONIC_WORK_DIR/ios"
+            - workdir: "$IONIC_WORK_DIR/ios" # Using ios directory for Xcode archive
       - deploy-to-bitrise-io@1.12.0: {}
